@@ -1,0 +1,10 @@
+FROM node:alpine    # pull base image
+
+WORKDIR '/app'      # create work directory for image
+
+COPY package.json . # copy package.json to current (.) working directory of image
+RUN npm install     # 
+
+COPY . .            # after all dependencies are addressed (above), copy all other files to workdir
+
+CMD ["npm", "run", "start]  # execute/run startup command for project
